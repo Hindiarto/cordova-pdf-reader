@@ -8,7 +8,10 @@ This plugin use native plugin : com.github.barteksc:android-pdf-viewer:3.2.0-bet
 2. after add the plugin check platforms/android/app/build.gradle
    there must be implementation "com.github.barteksc:android-pdf-viewer:3.2.0-beta.1"
 
-3. USGE :
+3. Install via cordova
+   cordova plugin add com.hindicorp.pdfviewer
+
+3. USAGE :
    PDFViewer.showPDF(base64PDFString, successCallback, errorCallback);
 
 
