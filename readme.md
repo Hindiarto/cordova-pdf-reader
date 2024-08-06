@@ -1,4 +1,4 @@
-This plugin use : com.github.barteksc:android-pdf-viewer:3.2.0-beta.1
+This plugin use native plugin : com.github.barteksc:android-pdf-viewer:3.2.0-beta.1
 
 USAGE :
 
