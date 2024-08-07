@@ -8,6 +8,14 @@ import org.json.JSONException;
 
 import android.content.Intent;
 import android.util.Base64;
+import android.os.Environment;
+import android.util.Log;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+
 
 public class PDFViewer extends CordovaPlugin {
     @Override
@@ -21,23 +29,35 @@ public class PDFViewer extends CordovaPlugin {
     }
 
     private void showPDF(String base64Data, CallbackContext callbackContext) {
-        //System.out.println("PDF VIEWER 1");
-        // Decode base64 data
-        byte[] pdfAsBytes = Base64.decode(base64Data, Base64.DEFAULT);
-        //System.out.println("PDF VIEWER 2");
+        try{
+            //System.out.println("PDF VIEWER 1");
+            // Decode base64 data
+            byte[] pdfAsBytes = Base64.decode(base64Data, Base64.DEFAULT);
+            //System.out.println("PDF VIEWER 2");
 
-        // Launch a new activity to display the PDF
-        Intent intent = new Intent(cordova.getActivity(), PDFViewerActivity.class);
-        //System.out.println("PDF VIEWER 3");
+            // Save PDF to a file
+            File pdfFile = new File(this.cordova.getContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "temp.pdf");
+            FileOutputStream fos = new FileOutputStream(pdfFile);
+            fos.write(pdfAsBytes);
+            fos.close();
 
-        intent.putExtra("pdf", pdfAsBytes);
-        //System.out.println("PDF VIEWER 4");
 
-        cordova.getActivity().startActivity(intent);
-        //System.out.println("PDF VIEWER 5");
+            // Launch a new activity to display the PDF
+            Intent intent = new Intent(cordova.getActivity(), PDFViewerActivity.class);
+            //System.out.println("PDF VIEWER 3");
+            intent.putExtra("pdfFilePath", pdfFile.getAbsolutePath());
 
-        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
-        //System.out.println("PDF VIEWER 6");
+            //intent.putExtra("pdfFilePath", pdfAsBytes);
+            //System.out.println("PDF VIEWER 4");
+
+            cordova.getActivity().startActivity(intent);
+            //System.out.println("PDF VIEWER 5");
+
+            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+            //System.out.println("PDF VIEWER 6");
+        } catch (IOException e) {
+            callbackContext.error("Error displaying PDF: " + e.getMessage());
+        }
 
     }
 }

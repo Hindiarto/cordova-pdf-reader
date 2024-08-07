@@ -10,12 +10,22 @@
             </feature>
         </config-file>
 
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        </config-file>
+
+
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity android:name="com.hindicorp.pdfviewer.PDFViewerActivity" android:exported="true" />
         </config-file>
 
         <source-file src="src/android/PDFViewer.java" target-dir="src/com/hindicorp/pdfviewer" />
         <source-file src="src/android/PDFViewerActivity.java" target-dir="src/com/hindicorp/pdfviewer" />
+        
+        <resource-file src="src/android/res/layout/activity_pdfviewer.xml" target="res/layout/activity_pdfviewer.xml" />
+
 
         <framework src="com.github.barteksc:android-pdf-viewer:3.2.0-beta.1" />
     </platform>
