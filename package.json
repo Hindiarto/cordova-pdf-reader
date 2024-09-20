@@ -1,6 +1,6 @@
 {
   "name": "com.hindicorp.pdfviewer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Cordova Plugin to view PDFs using base64 data",
   "cordova": {
       "id": "com.hindicorp.pdfviewer",
