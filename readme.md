@@ -1,4 +1,4 @@
-This plugin use native plugin : com.github.barteksc:android-pdf-viewer:3.2.0-beta.1
+This plugin use native plugin : ccom.github.mhiew:android-pdf-viewer:3.2.0-beta.1
 
 
 1. Please add repository :
@@ -6,7 +6,7 @@ This plugin use native plugin : com.github.barteksc:android-pdf-viewer:3.2.0-bet
    to platforms/android/app/repositories.gradle
 
 2. after add the plugin check platforms/android/app/build.gradle
-   there must be implementation "com.github.barteksc:android-pdf-viewer:3.2.0-beta.1"
+   there must be implementation "ccom.github.mhiew:android-pdf-viewer:3.2.0-beta.1"
 
 3. Install via cordova
    cordova plugin add com.hindicorp.pdfviewer
