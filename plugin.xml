@@ -25,7 +25,7 @@
         <source-file src="src/android/PDFViewerActivity.java" target-dir="src/com/hindicorp/pdfviewer" />
         
         <resource-file src="src/android/res/layout/activity_pdfviewer.xml" target="res/layout/activity_pdfviewer.xml" />
-
+        <resource-file src="src/android/res/drawable/rounded_button.xml" target="res/drawable/rounded_button.xml" />
 
         <framework src="com.github.mhiew:android-pdf-viewer:3.2.0-beta.1" />
     </platform>
